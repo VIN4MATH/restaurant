@@ -1,23 +1,60 @@
-import logo from './logo.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit, faTrash, faHome, faList, faFolderPlus, faSearch, faUser } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+
+import Home from './components/Home';
+import RestaurantCreate from "./components/RestaurantCreate";
+import RestaurantDetails from './components/RestaurantDetails';
+import RestaurantSearch from './components/RestaurantSearch';
+import RestaurantsList from './components/RestaurantsList';
+import RestaurantUpdate from './components/RestaurantUpdate';
+import Login from './components/login';
+import Logout from './components/Logout';
+// import NavBar from './components/NavBar';
+import ProtectRoute from './components/ProtectRoute';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Router>
+        {/* <NavBar/> */}
+        
+        {/* 
+        {<ul>
+         
+          <li>    <Link to="/details">Details</Link>  </li>
+        
+
+        </ul> */}
+
+        <ProtectRoute path="/list" component={RestaurantsList} />
+        <ProtectRoute path="/create" component={RestaurantCreate} />
+        <ProtectRoute path="/search" component={RestaurantSearch} />
+        <ProtectRoute path="/details" component={RestaurantDetails} />
+        <Route path="/logout" component={Logout} />
+        <ProtectRoute path="/update/:id" render={props => (
+          <RestaurantUpdate {...props} />
+        )}
+        />
+
+        <Route path="/login" render={props => (
+          <Login {...props} />
+        )}
+        />
+
+        < ProtectRoute exact path = "/" component={Home} />
+
+
+      </Router>
+
+
     </div>
   );
 }

@@ -1,0 +1,41 @@
+.create-button {
+    outline: none;
+    border:none;
+    cursor:pointer;
+    width:25%;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    background-color: #034046;
+    box-shadow: 3px 3px 8px #b1b1b1,
+    -3px -3px 8px #fff;
+    transition: all 0.5s;
+}
+.create-button:hover{
+    background-color: #50e5b9;
+}
+.create-button:active{
+    border-color: #88ef9c;
+}
+.field {
+    margin-top: -60px;
+    width: 100%;
+    padding: 50px 5px 5px 5px;
+}
+.input-field {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #555;
+
+    padding: 1px 15px 8px 3px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+
+}
